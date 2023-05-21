@@ -21,9 +21,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 176
+theme_override_constants/margin_left = 0
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 176
+theme_override_constants/margin_right = 0
 theme_override_constants/margin_bottom = 0
 script = ExtResource("1_1pgjn")
 max_size = Vector2(800, -1)
@@ -31,11 +31,6 @@ max_size = Vector2(800, -1)
 [node name="ColorRect" type="ColorRect" parent="MaxSizeContainer"]
 layout_mode = 2
 color = Color(0.0941176, 0, 0, 1)
-
-[node name="PageIndex" parent="MaxSizeContainer/ColorRect" instance=ExtResource("3_056d6")]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
 
 [node name="Navigation" parent="MaxSizeContainer/ColorRect" instance=ExtResource("2_btfeq")]
 unique_name_in_owner = true
@@ -45,7 +40,10 @@ anchor_top = 1.0
 offset_top = -60.0
 grow_vertical = 0
 
-[connection signal="page_changed" from="MaxSizeContainer/ColorRect/PageIndex" to="." method="_on_page_index_page_changed"]
-[connection signal="index_clicked" from="MaxSizeContainer/ColorRect/Navigation" to="." method="_on_navigation_index_clicked"]
+[node name="PageIndex" parent="." instance=ExtResource("3_056d6")]
+unique_name_in_owner = true
+layout_mode = 1
+
 [connection signal="next_clicked" from="MaxSizeContainer/ColorRect/Navigation" to="." method="_on_navigation_next_clicked"]
 [connection signal="previous_clicked" from="MaxSizeContainer/ColorRect/Navigation" to="." method="_on_navigation_previous_clicked"]
+[connection signal="page_changed" from="PageIndex" to="." method="_on_page_index_page_changed"]

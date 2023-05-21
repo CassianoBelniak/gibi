@@ -3,6 +3,7 @@ extends Control
 signal page_changed(page)
 
 @onready var page_tree : Tree = %PageTree
+@onready var content = %Content
 
 func _ready():
 	Pages.pages_updated.connect(_on_pages_updated)
@@ -51,3 +52,7 @@ func _on_page_tree_item_selected():
 	var item = page_tree.get_selected()
 	var metadata = item.get_metadata(0)
 	page_changed.emit(metadata.content)
+
+
+func _on_close_button_pressed():
+	content.visible = not content.visible

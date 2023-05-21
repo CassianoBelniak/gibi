@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://beapwchpn8mus"]
+[gd_scene load_steps=4 format=3 uid="uid://beapwchpn8mus"]
 
 [ext_resource type="Texture2D" uid="uid://bhy58lps0sylx" path="res://packed_scenes/gui/navigation/left.svg" id="1_ontaj"]
 [ext_resource type="Script" path="res://packed_scenes/gui/navigation/navigation.gd" id="1_pu4o3"]
 [ext_resource type="Texture2D" uid="uid://cqpv3llb0sqcf" path="res://packed_scenes/gui/navigation/right.svg" id="2_b4ekd"]
-[ext_resource type="Texture2D" uid="uid://2iyhj7q5058r" path="res://packed_scenes/gui/navigation/index.svg" id="2_ycmmm"]
 
 [node name="Navigation" type="Control"]
 custom_minimum_size = Vector2(0, 60)
@@ -21,17 +20,6 @@ offset_right = 48.0
 offset_bottom = 48.0
 texture_normal = ExtResource("1_ontaj")
 
-[node name="IndexButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -24.0
-offset_right = 24.0
-offset_bottom = 48.0
-grow_horizontal = 2
-texture_normal = ExtResource("2_ycmmm")
-
 [node name="RightButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 1
@@ -43,5 +31,4 @@ grow_horizontal = 0
 texture_normal = ExtResource("2_b4ekd")
 
 [connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="IndexButton" to="." method="_on_index_button_pressed"]
 [connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]

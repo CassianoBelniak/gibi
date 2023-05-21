@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgmlkdplhwf11"]
+[gd_scene load_steps=4 format=3 uid="uid://bgmlkdplhwf11"]
 
 [ext_resource type="Script" path="res://classes/max_size_container.gd" id="1_1t8lg"]
 [ext_resource type="Script" path="res://packed_scenes/gui/page_index/page_index.gd" id="1_ahgcw"]
+[ext_resource type="Texture2D" uid="uid://2iyhj7q5058r" path="res://packed_scenes/gui/navigation/index.svg" id="3_a1wpj"]
 
 [node name="PageIndex" type="Control"]
 layout_mode = 3
@@ -12,7 +13,26 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahgcw")
 
-[node name="MaxSizeContainer" type="MarginContainer" parent="."]
+[node name="Content" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DarkBackground" type="ColorRect" parent="Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.360784)
+
+[node name="MaxSizeContainer" type="MarginContainer" parent="Content"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,9 +47,35 @@ script = ExtResource("1_1t8lg")
 max_size = Vector2(500, -1)
 halign = 0
 
-[node name="PageTree" type="Tree" parent="MaxSizeContainer"]
+[node name="OpaqueBackground" type="ColorRect" parent="Content/MaxSizeContainer"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/MaxSizeContainer/OpaqueBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Span" type="Control" parent="Content/MaxSizeContainer/OpaqueBackground/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="PageTree" type="Tree" parent="Content/MaxSizeContainer/OpaqueBackground/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_vertical = 3
 hide_root = true
 
-[connection signal="item_selected" from="MaxSizeContainer/PageTree" to="." method="_on_page_tree_item_selected"]
+[node name="CloseButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 12.0
+offset_right = 57.0
+offset_bottom = 60.0
+texture_normal = ExtResource("3_a1wpj")
+
+[connection signal="item_selected" from="Content/MaxSizeContainer/OpaqueBackground/VBoxContainer/PageTree" to="." method="_on_page_tree_item_selected"]
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
