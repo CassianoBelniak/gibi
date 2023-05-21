@@ -37,11 +37,15 @@ func navigate_to_previous_page():
 
 func can_navigate_to_next() -> bool:
 	var item := page_tree.get_selected()
-	return item.get_next() != null
+	if item:
+		return item.get_next() != null
+	return false
 
 func can_navigate_to_previous() -> bool:
 	var item = page_tree.get_selected()
-	return item.get_prev() != null
+	if item:
+		return item.get_prev() != null
+	return false
 
 func _on_page_tree_item_selected():
 	var item = page_tree.get_selected()
