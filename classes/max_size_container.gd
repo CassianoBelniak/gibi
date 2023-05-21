@@ -144,8 +144,8 @@ func _adapt_margins() -> void:
 				new_margin_left = 0
 				new_margin_right = rect_size.x - max_size.x
 			HORIZONTAL_ALIGN.CENTER:
-				new_margin_left = (rect_size.x - max_size.x) / 2
-				new_margin_right = (rect_size.x - max_size.x) / 2
+				new_margin_left = (rect_size.x - max_size.x) / 2.0
+				new_margin_right = (rect_size.x - max_size.x) / 2.0
 			HORIZONTAL_ALIGN.RIGHT:
 				new_margin_left = rect_size.x - max_size.x
 				new_margin_right = 0
@@ -169,8 +169,8 @@ func _adapt_margins() -> void:
 				new_margin_top = 0
 				new_margin_bottom = rect_size.y - max_size.y
 			VERTICAL_ALIGN.CENTER:
-				new_margin_top = (rect_size.y - max_size.y) / 2
-				new_margin_bottom = (rect_size.y - max_size.y) / 2
+				new_margin_top = (rect_size.y - max_size.y) / 2.0
+				new_margin_bottom = (rect_size.y - max_size.y) / 2.0
 			VERTICAL_ALIGN.BOTTOM:
 				new_margin_top = rect_size.y - max_size.y
 				new_margin_bottom = 0
