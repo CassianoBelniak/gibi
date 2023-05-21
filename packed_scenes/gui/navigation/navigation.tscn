@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://beapwchpn8mus"]
+
+[ext_resource type="Texture2D" uid="uid://bhy58lps0sylx" path="res://packed_scenes/gui/navigation/left.svg" id="1_ontaj"]
+[ext_resource type="Texture2D" uid="uid://cqpv3llb0sqcf" path="res://packed_scenes/gui/navigation/right.svg" id="2_b4ekd"]
+
+[node name="Navigation" type="Control"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftButton" type="TextureButton" parent="."]
+layout_mode = 1
+offset_right = 1152.0
+offset_bottom = 648.0
+texture_normal = ExtResource("1_ontaj")
+
+[node name="RightButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_bottom = 48.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_b4ekd")
