@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqosta5dlmalv"]
+
+[ext_resource type="Script" path="res://packed_scenes/http_loader/http_loader.gd" id="1_7h6g4"]
+
+[node name="HttpLoader" type="Node"]
+script = ExtResource("1_7h6g4")

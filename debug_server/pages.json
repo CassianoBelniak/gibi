@@ -10,116 +10,11 @@
                 "children": [
                     {
                         "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
+                        "source": "http://127.0.0.1:5500/debug_server/demo_comic/page_001/index.json"
                     },
                     {
                         "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
-                    },                    {
-                        "title": "Page 1",
-                        "source": "/debug_server/demo_comic/page_001/index.json"
-                    },
-                    {
-                        "title": "Page 2",
-                        "source": "/debug_server/demo_comic/page_002/index.json"
+                        "source": "http://127.0.0.1:5500/debug_server/demo_comic/page_002/index.json"
                     }
                 ]
             }

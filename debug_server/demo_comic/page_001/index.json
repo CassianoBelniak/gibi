@@ -1,3 +1,36 @@
 {
-    
+    "panels": [
+        {
+            "dimensions": {
+                "width": 200,
+                "heigth": 200
+            },
+            "content": [
+                {
+                    "type": "texture",
+                    "url": "http://127.0.0.1:5500/debug_server/demo_comic/page_001/background.png",
+                    "position": {
+                        "x": 200,
+                        "y": 200
+                    }
+                }
+            ]
+        },
+        {
+            "dimensions": {
+                "width": 100,
+                "heigth": 100
+            },
+            "content": [
+                {
+                    "type": "texture",
+                    "url": "http://127.0.0.1:5500/debug_server/demo_comic/page_001/background.png",
+                    "position": {
+                        "x": 200,
+                        "y": 200
+                    }
+                }
+            ]
+        }
+    ]
 }

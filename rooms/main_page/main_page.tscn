@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqq62h5iae7ex"]
+[gd_scene load_steps=6 format=3 uid="uid://bqq62h5iae7ex"]
 
 [ext_resource type="Script" path="res://classes/max_size_container.gd" id="1_1pgjn"]
 [ext_resource type="Script" path="res://rooms/main_page/main_page.gd" id="1_oh7xu"]
 [ext_resource type="PackedScene" uid="uid://beapwchpn8mus" path="res://packed_scenes/gui/navigation/navigation.tscn" id="2_btfeq"]
+[ext_resource type="PackedScene" uid="uid://ck1f8y3j8bboo" path="res://packed_scenes/content/content.tscn" id="3_46u60"]
 [ext_resource type="PackedScene" uid="uid://bgmlkdplhwf11" path="res://packed_scenes/gui/page_index/page_index.tscn" id="3_056d6"]
 
 [node name="MainPage" type="Control"]
@@ -32,18 +33,26 @@ max_size = Vector2(800, -1)
 layout_mode = 2
 color = Color(0.0941176, 0, 0, 1)
 
-[node name="Navigation" parent="MaxSizeContainer/ColorRect" instance=ExtResource("2_btfeq")]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="MaxSizeContainer/ColorRect"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-offset_top = -60.0
-grow_vertical = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" parent="MaxSizeContainer/ColorRect/VBoxContainer" instance=ExtResource("3_46u60")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Navigation" parent="MaxSizeContainer/ColorRect/VBoxContainer" instance=ExtResource("2_btfeq")]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="PageIndex" parent="." instance=ExtResource("3_056d6")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[connection signal="next_clicked" from="MaxSizeContainer/ColorRect/Navigation" to="." method="_on_navigation_next_clicked"]
-[connection signal="previous_clicked" from="MaxSizeContainer/ColorRect/Navigation" to="." method="_on_navigation_previous_clicked"]
+[connection signal="next_clicked" from="MaxSizeContainer/ColorRect/VBoxContainer/Navigation" to="." method="_on_navigation_next_clicked"]
+[connection signal="previous_clicked" from="MaxSizeContainer/ColorRect/VBoxContainer/Navigation" to="." method="_on_navigation_previous_clicked"]
 [connection signal="page_changed" from="PageIndex" to="." method="_on_page_index_page_changed"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck1f8y3j8bboo"]
+
+[ext_resource type="Script" path="res://packed_scenes/content/content.gd" id="1_pi1lr"]
+[ext_resource type="PackedScene" uid="uid://dqosta5dlmalv" path="res://packed_scenes/http_loader/http_loader.tscn" id="2_8e28e"]
+
+[node name="Content" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+script = ExtResource("1_pi1lr")
+
+[node name="Panels" type="FlowContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HttpLoader" parent="." instance=ExtResource("2_8e28e")]
+unique_name_in_owner = true

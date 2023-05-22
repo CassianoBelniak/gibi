@@ -2,6 +2,7 @@ extends Control
 
 @onready var page_index = %PageIndex
 @onready var navigation = %Navigation
+@onready var content = %Content
 
 func _ready():
 	Pages.pages_updated.connect(_on_pages_updated)
@@ -10,8 +11,9 @@ func _on_navigation_index_clicked():
 	page_index.visible = not page_index.visible
 
 
-func _on_page_index_page_changed(_page):
+func _on_page_index_page_changed(page: Dictionary):
 	_update_navigation()
+	content.set_page(page)
 
 
 func _update_navigation():
