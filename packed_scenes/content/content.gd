@@ -1,28 +1,39 @@
 extends Control
 
-@onready var panels = %Panels
 @onready var http_loader = %HttpLoader
+@onready var sections = %Sections
 
 func set_page(content: Dictionary):
 	_clear_pages()
-	http_loader.load_json_content(content.source, _on_page_content_loaded)
+	if content.has('source'):
+		http_loader.load_json_content(content.source, _on_page_content_loaded)
 	
 func _on_page_content_loaded(content):
+	for section in content.get('sections', []):
+		_create_section(section)
+	
+func _create_section(content: Dictionary):
+	var section := FlowContainer.new()
+	section.custom_minimum_size.y = content.get('dimensions', {}).get('heigth',0) + 5
+	section.vertical = content.get('direction', 'horizontal') == 'vertical'
+	section.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	sections.add_child(section)
 	for panel in content.get("panels", []):
-		_create_panel(panel)
+		_create_panel(panel, section)
 		
 func _clear_pages():
-	for child in panels.get_children():
+	for child in sections.get_children():
 		child.queue_free()
 	
-func _create_panel(panel: Dictionary):
-	var panel_control := Control.new()
-	panel_control.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
-	panel_control.custom_minimum_size.x = panel.dimensions.width
-	panel_control.custom_minimum_size.y = panel.dimensions.heigth
-	panels.add_child(panel_control)
-	for content in panel.get('content',[]):
-		_add_content(content, panel_control)
+func _create_panel(content: Dictionary, section: FlowContainer):
+	var panel := ColorRect.new()
+	# panel.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
+	panel.custom_minimum_size.x = content.dimensions.width
+	panel.custom_minimum_size.y = content.dimensions.heigth
+	section.add_child(panel)
+	return
+	for element in content.get('elements',[]):
+		_add_content(element, panel)
 		
 func _add_content(parent_content: Dictionary, parent: Control):
 	var control := _get_content_control(parent_content)

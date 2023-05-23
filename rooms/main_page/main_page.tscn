@@ -22,9 +22,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 0
+theme_override_constants/margin_left = 176
 theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 0
+theme_override_constants/margin_right = 176
 theme_override_constants/margin_bottom = 0
 script = ExtResource("1_1pgjn")
 max_size = Vector2(800, -1)
@@ -41,7 +41,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" parent="MaxSizeContainer/ColorRect/VBoxContainer" instance=ExtResource("3_46u60")]
+[node name="MarginContainer" type="MarginContainer" parent="MaxSizeContainer/ColorRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Content" parent="MaxSizeContainer/ColorRect/VBoxContainer/MarginContainer" instance=ExtResource("3_46u60")]
 unique_name_in_owner = true
 layout_mode = 2
 

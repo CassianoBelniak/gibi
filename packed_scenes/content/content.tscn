@@ -13,14 +13,73 @@ grow_vertical = 2
 size_flags_vertical = 3
 script = ExtResource("1_pi1lr")
 
-[node name="Panels" type="FlowContainer" parent="."]
+[node name="HttpLoader" parent="." instance=ExtResource("2_8e28e")]
 unique_name_in_owner = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
-[node name="HttpLoader" parent="." instance=ExtResource("2_8e28e")]
+[node name="Sections" type="VBoxContainer" parent="ScrollContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Panels" type="FlowContainer" parent="ScrollContainer/Sections"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/Sections/Panels"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/Sections/Panels"]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/Sections/Panels"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect4" type="ColorRect" parent="ScrollContainer/Sections/Panels"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panels2" type="FlowContainer" parent="ScrollContainer/Sections"]
+visible = false
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+vertical = true
+
+[node name="ColorRect" type="ColorRect" parent="ScrollContainer/Sections/Panels2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect2" type="ColorRect" parent="ScrollContainer/Sections/Panels2"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect3" type="ColorRect" parent="ScrollContainer/Sections/Panels2"]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
