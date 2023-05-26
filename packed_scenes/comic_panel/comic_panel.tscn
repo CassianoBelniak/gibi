@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c376hy70kcmr4"]
+
+[ext_resource type="Script" path="res://packed_scenes/comic_panel/comic_panel.gd" id="1_jlrcb"]
+[ext_resource type="Texture2D" uid="uid://cr8os4mltehik" path="res://icon.svg" id="2_iohsr"]
+
+[node name="ComicPanel" type="ColorRect"]
+clip_children = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_jlrcb")
+
+[node name="Origin" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Icon2" type="Sprite2D" parent="Origin"]
+position = Vector2(281, 154)
+texture = ExtResource("2_iohsr")
+
+[node name="Icon" type="Sprite2D" parent="Origin"]
+position = Vector2(487, 272)
+texture = ExtResource("2_iohsr")

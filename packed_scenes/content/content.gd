@@ -1,5 +1,7 @@
 extends Control
 
+const ComicPanel = preload("res://packed_scenes/comic_panel/comic_panel.tscn")
+
 @export var force_linear_content := false
 
 @onready var http_loader = %HttpLoader
@@ -35,33 +37,16 @@ func _clear_pages():
 		child.queue_free()
 	
 func _create_panel(content: Dictionary, section: Control):
-	var panel := ColorRect.new()
-	# panel.clip_children = CanvasItem.CLIP_CHILDREN_AND_DRAW
+	var panel := ComicPanel.instantiate()
 	panel.custom_minimum_size.x = content.dimensions.width
 	panel.custom_minimum_size.y = content.dimensions.heigth
-	panel.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	panel.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	if section is VBoxContainer:
 		var panel_scale = panel.custom_minimum_size.x / 800.0
 		panel.custom_minimum_size.x = 800.0
 		panel.custom_minimum_size.y /= panel_scale
+		panel.zoom = panel_scale
+	panel.load_content(content.get('content',[]), http_loader)
 	section.add_child(panel)
-	return
-	for element in content.get('elements',[]):
-		_add_content(element, panel)
-		
-func _add_content(parent_content: Dictionary, parent: Control):
-	var control := _get_content_control(parent_content)
-	parent.add_child(control)
-	for content in parent_content.get('content',[]):
-		_add_content(content, control)
 
-func _get_content_control(content: Dictionary) -> Control:
-	match content.type:
-		"texture": return _make_texture(content)
-	return Control.new()
-	
-func _make_texture(content: Dictionary) -> TextureRect:
-	var texture := TextureRect.new()
-	http_loader.load_image_into_texture(texture, content.url)
-	return texture
+
+
