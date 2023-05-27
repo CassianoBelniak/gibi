@@ -56,3 +56,7 @@ func _on_page_tree_item_selected():
 
 func _on_close_button_pressed():
 	content.visible = not content.visible
+	if content.visible:
+		custom_minimum_size.x = 300
+	else:
+		custom_minimum_size.x = 0

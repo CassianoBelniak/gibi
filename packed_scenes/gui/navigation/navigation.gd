@@ -3,8 +3,8 @@ extends Control
 signal next_clicked
 signal previous_clicked
 
-@onready var left_button = $LeftButton
-@onready var right_button = $RightButton
+@onready var right_button = %RightButton
+@onready var left_button = %LeftButton
 
 func set_next_visibility(next_visible: bool):
 	right_button.visible = next_visible

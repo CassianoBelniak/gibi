@@ -15,6 +15,8 @@ func set_page(content: Dictionary):
 func _on_page_content_loaded(content):
 	for section in content.get('sections', []):
 		_create_section(section)
+	await get_tree().process_frame
+	custom_minimum_size.y = sections.size.y
 	
 func _create_section(content: Dictionary):
 	var section := _get_section_container(content)

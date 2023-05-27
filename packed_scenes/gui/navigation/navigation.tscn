@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://beapwchpn8mus"]
+[gd_scene load_steps=5 format=3 uid="uid://beapwchpn8mus"]
 
 [ext_resource type="Texture2D" uid="uid://bhy58lps0sylx" path="res://packed_scenes/gui/navigation/left.svg" id="1_ontaj"]
 [ext_resource type="Script" path="res://packed_scenes/gui/navigation/navigation.gd" id="1_pu4o3"]
 [ext_resource type="Texture2D" uid="uid://cqpv3llb0sqcf" path="res://packed_scenes/gui/navigation/right.svg" id="2_b4ekd"]
+[ext_resource type="Script" path="res://classes/max_size_container.gd" id="2_lqjup"]
 
 [node name="Navigation" type="Control"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,21 +15,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pu4o3")
 
-[node name="LeftButton" type="TextureButton" parent="."]
+[node name="MaxSizeContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-offset_right = 48.0
-offset_bottom = 48.0
-texture_normal = ExtResource("1_ontaj")
-
-[node name="RightButton" type="TextureButton" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = 15
 anchor_right = 1.0
-offset_left = -48.0
-offset_bottom = 48.0
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("2_lqjup")
+max_size = Vector2(800, -1)
+
+[node name="RightButton" type="TextureButton" parent="MaxSizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
 texture_normal = ExtResource("2_b4ekd")
 
-[connection signal="pressed" from="LeftButton" to="." method="_on_left_button_pressed"]
-[connection signal="pressed" from="RightButton" to="." method="_on_right_button_pressed"]
+[node name="LeftButton" type="TextureButton" parent="MaxSizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("1_ontaj")
+
+[connection signal="pressed" from="MaxSizeContainer/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="MaxSizeContainer/LeftButton" to="." method="_on_left_button_pressed"]
