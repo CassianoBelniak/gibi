@@ -10,7 +10,7 @@ const ComicPanel = preload("res://packed_scenes/comic_panel/comic_panel.tscn")
 func set_page(content: Dictionary):
 	_clear_pages()
 	if content.has('source'):
-		http_loader.load_json_content(content.source, _on_page_content_loaded)
+		http_loader.load_json_content(Config.cached.baseURL + content.source, _on_page_content_loaded)
 	
 func _on_page_content_loaded(content):
 	for section in content.get('sections', []):

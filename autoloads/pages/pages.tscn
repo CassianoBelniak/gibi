@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://df63e6u5i1e2a"]
+[gd_scene load_steps=3 format=3 uid="uid://df63e6u5i1e2a"]
 
 [ext_resource type="Script" path="res://autoloads/pages/pages.gd" id="1_glwy5"]
+[ext_resource type="PackedScene" uid="uid://dqosta5dlmalv" path="res://packed_scenes/http_loader/http_loader.tscn" id="2_5ym8y"]
 
 [node name="Pages" type="Node"]
 script = ExtResource("1_glwy5")
+
+[node name="HttpLoader" parent="." instance=ExtResource("2_5ym8y")]
+unique_name_in_owner = true

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Gibi</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <script>
+            // Gibi web env configs should be put here
+            // Keep in mind this file is only used when running as an web build
+            // You must remove the "_example" from the filename to be able to run this project
+            const GIBI_CONFIG_URL = 'YOUR FULL PATH TO THE CONFIG.JSON FILE MUST BE HERE'
+        </script>
+        <canvas id="canvas"></canvas>
+        <script src="$GODOT_URL"></script>
+        <script>
+            var engine = new Engine($GODOT_CONFIG);
+            engine.startGame();
+        </script>
+    </body>
+</html>

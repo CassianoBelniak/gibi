@@ -11,5 +11,5 @@ static func _get_element(content: Dictionary, http_loader) -> Node:
 	
 static func _make_texture(content: Dictionary, http_loader) -> Sprite2D:
 	var texture := Sprite2D.new()
-	http_loader.load_image_into_texture(texture, content.url)
+	http_loader.load_image_into_texture(texture, Config.cached.baseURL + content.url)
 	return texture

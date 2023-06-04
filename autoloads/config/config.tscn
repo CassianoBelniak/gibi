@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://gx8m0p4hohwx"]
+
+[ext_resource type="PackedScene" uid="uid://dqosta5dlmalv" path="res://packed_scenes/http_loader/http_loader.tscn" id="1_24xhp"]
+[ext_resource type="Script" path="res://autoloads/config/config.gd" id="1_ptvhk"]
+
+[node name="Config" type="Node"]
+script = ExtResource("1_ptvhk")
+
+[node name="HttpLoader" parent="." instance=ExtResource("1_24xhp")]
+unique_name_in_owner = true

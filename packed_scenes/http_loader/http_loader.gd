@@ -12,7 +12,7 @@ func load_image_into_texture(texture: Node, url: String):
 			)
 	var error = http_request.request(url)
 	if error != OK:
-		push_error("An error occurred in the HTTP request.")
+		push_error("An error occurred in the HTTP request. URL was " + url)
 	_remaining_loads += 1
 
 func has_pendings_requests() -> bool:
@@ -24,7 +24,7 @@ func load_json_content(url: String, callback):
 	http_request.request_completed.connect(func (_result, _response_code, _headers, body): _page_load_result(body, callback))
 	var error = http_request.request(url)
 	if error != OK:
-		push_error("An error occurred in the HTTP request.")
+		push_error("An error occurred in the HTTP request. URL was " + url)
 
 func _http_request_texture_completed(result, body, node):
 	if result != HTTPRequest.RESULT_SUCCESS:

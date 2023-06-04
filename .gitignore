@@ -1,3 +1,4 @@
 # Godot 4+ specific ignores
 .godot/
-/debug_server/exported
+/env/editor_config.gd
+/env/html_build_template.html
