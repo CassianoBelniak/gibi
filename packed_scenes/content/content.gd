@@ -3,15 +3,23 @@ extends Control
 const ComicPanel = preload("res://packed_scenes/comic_panel/comic_panel.tscn")
 
 @export var force_linear_content := false
-
 @onready var http_loader = %HttpLoader
 @onready var sections = %Sections
 
+var _static_content = false
+
 func set_page(content: Dictionary):
 	_clear_pages()
+	if content.has("path"):
+		_load_static_page(content.path)
 	if content.has('source'):
 		http_loader.load_json_content(Config.cached.baseURL + content.source, _on_page_content_loaded)
-	
+
+func _load_static_page(resource_path):
+	var resource = load(resource_path)
+	_static_content = resource.instantiate()
+	add_child(_static_content)
+
 func _on_page_content_loaded(content):
 	for section in content.get('sections', []):
 		_create_section(section)
@@ -35,6 +43,8 @@ func _get_section_container(content: Dictionary) -> Control:
 	return section
 		
 func _clear_pages():
+	if _static_content:
+		_static_content.queue_free()
 	for child in sections.get_children():
 		child.queue_free()
 	

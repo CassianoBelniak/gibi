@@ -11,6 +11,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+color = Color(0.0823529, 0, 0, 1)
 script = ExtResource("1_jlrcb")
 
 [node name="Origin" type="Node2D" parent="."]
