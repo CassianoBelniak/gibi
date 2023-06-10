@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://beapwchpn8mus"]
+[gd_scene load_steps=6 format=3 uid="uid://beapwchpn8mus"]
 
 [ext_resource type="Texture2D" uid="uid://bhy58lps0sylx" path="res://packed_scenes/gui/navigation/left.svg" id="1_ontaj"]
 [ext_resource type="Script" path="res://packed_scenes/gui/navigation/navigation.gd" id="1_pu4o3"]
 [ext_resource type="Texture2D" uid="uid://cqpv3llb0sqcf" path="res://packed_scenes/gui/navigation/right.svg" id="2_b4ekd"]
 [ext_resource type="Script" path="res://classes/max_size_container.gd" id="2_lqjup"]
+[ext_resource type="Texture2D" uid="uid://2iyhj7q5058r" path="res://packed_scenes/gui/navigation/index.svg" id="5_emmyn"]
 
 [node name="Navigation" type="Control"]
 custom_minimum_size = Vector2(0, 50)
@@ -41,5 +42,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("1_ontaj")
 
+[node name="IndexButton" type="TextureButton" parent="MaxSizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_emmyn")
+
 [connection signal="pressed" from="MaxSizeContainer/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="MaxSizeContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="MaxSizeContainer/IndexButton" to="." method="_on_index_button_pressed"]

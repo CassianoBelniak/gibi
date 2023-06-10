@@ -28,5 +28,6 @@ func _on_pages_updated():
 func _on_page_tree_item_selected():
 	var item = page_tree.get_selected()
 	var metadata = item.get_metadata(0)
-	Pages.navigate_to(metadata.content.key)
+	if metadata and metadata.get("content", {}).has("key"):
+		Pages.navigate_to(metadata.content.key)
 

@@ -13,25 +13,26 @@ func _ready():
 	Config.config_loaded.connect(_queue_pages_load)
 	
 func navigate_to_next_page():
-	var current_page = mapped_pages.get("current_page_key", {})
+	var current_page = mapped_pages.get(current_page_key, {})
 	if current_page["next_page_key"]:
 		navigate_to(current_page["next_page_key"])
 
 func navigate_to_previous_page():
-	var current_page = mapped_pages.get("current_page_key", {})
+	var current_page = mapped_pages.get(current_page_key, {})
 	if current_page["prev_page_key"]:
 		navigate_to(current_page["prev_page_key"])
 
 func can_navigate_to_next() -> bool:
-	var current_page = mapped_pages.get("current_page_key", {})
-	return current_page.has("next_page_key")
+	var current_page = mapped_pages.get(current_page_key, {})
+	return current_page.get("next_page_key", null) != null
 
 func can_navigate_to_previous() -> bool:
-	var current_page = mapped_pages.get("current_page_key", {})
-	return current_page.has("prev_page_key")
+	var current_page = mapped_pages.get(current_page_key, {})
+	return current_page.get("prev_page_key", null) != null
 
 func navigate_to(page_key: String):
 	prints("Navigated to", page_key)
+	current_page_key = page_key
 	var page = mapped_pages.get(page_key, mapped_pages.get("not-found", mapped_pages.get("home", {})))
 	page_changed.emit(page.page)
 	

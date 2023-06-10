@@ -45,6 +45,7 @@ func _get_section_container(content: Dictionary) -> Control:
 func _clear_pages():
 	if _static_content:
 		_static_content.queue_free()
+		_static_content = null
 	for child in sections.get_children():
 		child.queue_free()
 	

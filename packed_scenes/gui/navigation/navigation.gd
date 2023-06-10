@@ -17,3 +17,6 @@ func _on_left_button_pressed():
 
 func _on_right_button_pressed():
 	next_clicked.emit()
+
+func _on_index_button_pressed():
+	Pages.navigate_to("archive")
