@@ -28,5 +28,5 @@ func _on_pages_updated():
 	_update_navigation()
 
 func _on_resized():
-	await  Utils.for_initialization(self)
+	await Utils.for_initialization(self)
 	content.force_linear_content = size.x < 800

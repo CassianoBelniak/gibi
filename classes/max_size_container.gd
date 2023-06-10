@@ -222,9 +222,11 @@ func _on_child_tree_exiting() -> void:
 	
 	# Disconnect signals
 	#child.disconnect("tree_exiting", self, "_on_child_tree_exiting")
-	child.disconnect("tree_exiting", _on_child_tree_exiting)
+	if child.is_connected("tree_exiting", _on_child_tree_exiting):
+		child.disconnect("tree_exiting", _on_child_tree_exiting)
 	#child.disconnect("minimum_size_changed", self, "_on_child_minimum_size_changed")
-	child.disconnect("minimum_size_changed", _on_child_minimum_size_changed)
+	if child.is_connected("minimum_size_changed", _on_child_minimum_size_changed):
+		child.disconnect("minimum_size_changed", _on_child_minimum_size_changed)
 	
 	# Reset custom margins
 	_set_custom_margins(LEFT, 0)

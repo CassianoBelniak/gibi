@@ -35,6 +35,10 @@ func navigate_to(page_key: String):
 	current_page_key = page_key
 	var page = mapped_pages.get(page_key, mapped_pages.get("not-found", mapped_pages.get("home", {})))
 	page_changed.emit(page.page)
+	JavaScriptBridge.eval("const url = new URL(window.location.href);
+		url.searchParams.set('page', '" + page_key + "');
+		window.history.pushState({ path: url.toString() }, '', url.toString());
+		localStorage.setItem('lastVisitedPage', '" + page_key + "')")
 	
 func _queue_pages_load():
 	prints('Loading pages:', Config.cached.pagesURL)
@@ -74,4 +78,12 @@ func _add_subpage(page: Dictionary, prev_page_key = null, next_page_key = null):
 func _on_pages_updated():
 	_update_pages()
 	if current_page_key == "loading":
-		navigate_to("home")
+		var url_page_key = JavaScriptBridge.eval("new URL(window.location.href).searchParams.get('page')")
+		if url_page_key:
+			navigate_to(url_page_key)
+		else:
+			var saved_last_page = JavaScriptBridge.eval("localStorage.getItem('lastVisitedPage')")
+			if saved_last_page:
+				navigate_to(saved_last_page)
+			else:
+				navigate_to("home")

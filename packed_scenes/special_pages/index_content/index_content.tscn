@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://daliklbcnlb7r"]
+[gd_scene load_steps=3 format=3 uid="uid://daliklbcnlb7r"]
 
 [ext_resource type="Script" path="res://packed_scenes/special_pages/index_content/index_content.gd" id="1_431m6"]
+[ext_resource type="Script" path="res://classes/max_size_container.gd" id="2_kikbb"]
 
 [node name="IndexContent" type="Control"]
 layout_mode = 3
@@ -11,13 +12,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_431m6")
 
-[node name="PageTree" type="Tree" parent="."]
-unique_name_in_owner = true
+[node name="MaxSizeContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+script = ExtResource("2_kikbb")
+max_size = Vector2(800, -1)
 
-[connection signal="item_selected" from="PageTree" to="." method="_on_page_tree_item_selected"]
+[node name="PageTree" type="Tree" parent="MaxSizeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[connection signal="item_selected" from="MaxSizeContainer/PageTree" to="." method="_on_page_tree_item_selected"]
